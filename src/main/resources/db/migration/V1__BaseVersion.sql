@@ -8,9 +8,11 @@ CREATE TABLE tables(
 
 CREATE TABLE reservation(
     id bigint not null auto_increment primary key,
+    name varchar(255) not null,
     from_date timestamp not null,
     ends_date timestamp not null,
     table_id bigint not null,
+    number_of_people int,
     CONSTRAINT fk_table FOREIGN KEY (table_id) REFERENCES tables(id)
 );
 
@@ -37,6 +39,6 @@ INSERT INTO tables (id,name, picture, winter_ready, chairs) VALUES (19,"D5", "ur
 INSERT INTO tables (id,name, picture, winter_ready, chairs) VALUES (20,"D6", "url..d6.png", true, 1);
 
 
-INSERT INTO reservation (from_date, ends_date, table_id) VALUES (CURRENT_TIMESTAMP, DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR), 1);
-INSERT INTO reservation (from_date, ends_date, table_id) VALUES (CURRENT_TIMESTAMP, DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR), 2);
-INSERT INTO reservation (from_date, ends_date, table_id) VALUES (CURRENT_TIMESTAMP, DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR), 3);
+INSERT INTO reservation (name, from_date, ends_date, table_id, number_of_people) VALUES ("Peter Griffin", CURRENT_TIMESTAMP, DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR), 1, 3);
+INSERT INTO reservation (name, from_date, ends_date, table_id, number_of_people) VALUES ("Bruce Wayne", CURRENT_TIMESTAMP, DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR), 2, 3);
+INSERT INTO reservation (name, from_date, ends_date, table_id, number_of_people) VALUES ("Nick Fury", CURRENT_TIMESTAMP, DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 1 HOUR), 3, 1);

@@ -5,6 +5,8 @@ import hu.obuda.akosszanto.restaurant.service.ReservationService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/rest/v1/reserve")
 public class ReservationController {
@@ -21,10 +23,10 @@ public class ReservationController {
             description = "Get all reservations",
             tags = {"reservation"},
             operationId = "getAllReservations")
-    public String getAllReservations() {
-        return reservationService.getAllReservations().toString();
+    public List<Reservation> getAllReservations() {
+        return reservationService.getAllReservations();
     }
-        
+
 
     @PostMapping("/make")
     @Operation(summary = "Make a reservation",
