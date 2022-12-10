@@ -23,7 +23,7 @@ public class WebSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/rest/v1/reserve/all")
+                .antMatchers("/rest/v1/reserve/make")
                 .hasRole("USER")
                 .anyRequest()
                 .permitAll();

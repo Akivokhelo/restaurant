@@ -24,6 +24,7 @@ public class ReservationController {
     public String getAllReservations() {
         return reservationService.getAllReservations().toString();
     }
+        
 
     @PostMapping("/make")
     @Operation(summary = "Make a reservation",
